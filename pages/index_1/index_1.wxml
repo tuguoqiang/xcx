@@ -1,0 +1,24 @@
+<!--pages/index_1/index_1.wxml-->
+<!--  搜索框  -->
+<view class="weui-search-bar">
+   <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="请输入查询内容" value="{{value}}"      bindinput='bindinput'  />
+      <view class="weui-icon-clear" wx:if="{{value.length > 0}}" bindtap="searchmove">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+  </view>
+    <view class="weui-search-bar__cancel-btn" bindtap="search">
+         <text wx:if="{{value.length>0}}" data-key='search'>搜索</text>
+         <!-- <text wx:else data-key='back'>返回</text> -->
+    </view>
+</view>
+<view bindtap='ondata' wx:for="{{arry}}"  wx:for-item="item" wx:for-index="id" class='toppx'>
+<i-card  extra="{{item.name}}" 
+thumb="{{item.url}}">
+    <view slot="content">{{item.title}}</view>
+    <view slot="footer">{{item.urlfrom}}</view>
+</i-card>
+</view>
